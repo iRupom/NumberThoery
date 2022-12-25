@@ -21,6 +21,7 @@ void seive(int MAX) {
 			primes.push_back(i);
 		}
 	}
+
 }
 
 void segmentedSeive(int left, int right) {
@@ -35,13 +36,15 @@ void segmentedSeive(int left, int right) {
 		if (ind < left) ind += primes[i];
 
 		for (; ind <= right; ind += primes[i]) {
-			arr[ind - left] = 0;
+			if (ind != primes[i]) {
+				arr[ind - left] = 0;
+			}
 		}
 	}
 
 	for (int i = 0; i < mx; i++) {
 		if (arr[i]) {
-			cout << left + i << " ";
+			cout << left + i << endl;
 		}
 	}
 
