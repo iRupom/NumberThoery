@@ -9,9 +9,9 @@ void seive(int MAX) {
 	memset(arr, 1, sizeof(arr));
 	arr[0] = arr[1] = 0;
 	for (int i = 2; i * i <= MAX; i++) {
-		if (arr[i]) {
+		if (!arr[i]) {
 			for (int j = i * i; j <= MAX; j += i) {
-				arr[j] = 0;
+				arr[j] = 1;
 			}
 		}
 	}
